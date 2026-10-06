@@ -1,5 +1,9 @@
 # 動画学習ワークスペースの紹介ページ
 
+公開URL: https://itoshiyou.github.io/video-learning-workspace-site/
+
+リポジトリ: https://github.com/ItoShiyou/video-learning-workspace-site
+
 HTML・CSS・JavaScriptだけで動く、GitHub Pages向けの紹介ページです。外部のJavaScript、フォント、解析サービス、ビルドツールは使用しません。
 
 ## ファイル
