@@ -2308,3 +2308,30 @@ dialog > p {
     font-size: 8px;
   }
 }
+/* The presentation follows the warm bookshelf of the current product. */
+:root { --paper:#f6f3eb; --ink:#25372c; --muted:#626a60; --line:#d8d6c9; --purple:#285b44; --lavender:#e0e9db; --dark:#253f30; --green:#557a60; }
+.product-preview { grid-column:1/-1; margin-top:50px; background:#fffdf8; border:1px solid var(--line); border-radius:14px; overflow:hidden; box-shadow:0 18px 44px #293b2614; }
+.product-preview .preview-bar { color:var(--ink); background:#e5eadf; }
+#hero-screen-panel { max-height:660px; overflow:auto; }
+#hero-screen { width:100%; height:auto; }
+.screen-switches { display:flex; gap:8px; padding:18px; flex-wrap:wrap; border-top:1px solid var(--line); }
+.screen-switches button { flex:1; min-width:150px; padding:13px 18px; border-radius:8px; border:1px solid var(--line); background:#fffdf8; color:var(--ink); }
+.screen-switches [aria-selected="true"] { background:#285b44; border-color:#285b44; color:white; }
+.real-gallery { display:grid; grid-template-columns:1fr 1fr; gap:32px; }
+.real-gallery figure { margin:0; min-width:0; }
+.real-gallery .real-screen-button { width:100%; }
+.real-gallery .real-screen-button img { aspect-ratio:1.28; object-fit:cover; object-position:top; }
+.real-gallery figcaption { padding-top:18px; }
+.real-gallery figcaption strong { font-size:20px; }
+.real-gallery figcaption p { margin:8px 0 0; line-height:1.8; color:var(--muted); }
+.verification-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
+.verification-grid article { border:1px solid var(--line); background:#fffdf8; padding:28px; border-radius:12px; }
+.verification-grid h3 { margin-top:0; }
+.verification-grid p { font-size:14px; line-height:1.9; color:var(--muted); }
+.development-history ol { list-style:none; padding:0; margin:0; }
+.development-history li { padding:24px 0; border-top:1px solid var(--line); }
+.development-history p { margin:10px 0 0; color:var(--muted); line-height:1.8; }
+button:focus-visible,a:focus-visible,summary:focus-visible { outline-color:#285b44; }
+@media(max-width:640px){.real-gallery,.verification-grid{grid-template-columns:1fr}.product-preview{margin-top:28px}.screen-switches{padding:12px}.screen-switches button{min-width:120px}.verification-grid article{padding:22px}}
+
+@media(min-width:1101px){.product-preview{grid-column:2;grid-row:1;margin-top:0;min-width:0}#hero-screen-panel{max-height:500px}.screen-switches{padding:12px}.screen-switches button{min-width:110px;padding:11px 10px;font-size:11px}.preview-caption{grid-column:1/-1;margin-top:24px}}

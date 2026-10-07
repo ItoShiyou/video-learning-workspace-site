@@ -10,7 +10,7 @@ HTML・CSS・JavaScriptだけで動く、GitHub Pages向けの紹介ページで
 
 - `dist/index.html`：紹介文、機能、画面イメージ、料金構成、対応環境、FAQ
 - `dist/style.css`：PC・タブレット・スマートフォンの表示
-- `dist/script.js`：画面タブ、カードの答え表示、メニュー、画面拡大
+- `dist/script.js`：実画面の切り替えタブ、メニュー、画面拡大
 - `dist/assets/`：アイコン、サンプル画像、実装済みアプリの画面
 - `.github/workflows/pages.yml`：mainへのpushでGitHub Pagesへデプロイ
 - `scripts/check-site.py`：画像やリンク、ARIA参照、相対パスなどの確認
@@ -46,3 +46,7 @@ python3 scripts/check-site.py
 ```
 
 説明文や名称は `dist/index.html`、色や余白は `dist/style.css` から変更できます。
+
+## 0.14.1の掲載資料
+
+本棚・教材選択・ノート・復習は、配布アプリに同梱したUIを掲載用の架空教材で起動し、ブラウザ撮影した実装画面です。静止画を切り替える紹介機能であり、Webサイト上でアプリを実行する機能ではありません。検証済みの範囲、AI実モデルテストの省略、販売前に残る作業、変更履歴を本文に記載しています。

@@ -15,7 +15,7 @@
     />
     <meta
       property="og:description"
-      content="YouTubeも、手元の講義も。メモ、スクショ、復習まで、ひとつの場所で。"
+      content="YouTubeも、手元の講義も。本棚から選び、ノートと復習へ。一画面、一つのことに集中。"
     />
     <meta property="og:locale" content="ja_JP" />
     <meta
@@ -59,7 +59,7 @@
       </button>
       <nav id="main-nav" aria-label="メインナビゲーション">
         <a href="#workflow">学習の流れ</a><a href="#features">できること</a
-        ><a href="#local-ai">ローカルAI</a><a href="#faq">よくある質問</a
+        ><a href="#local-ai">ローカルAI</a><a href="#verification">検証状況</a><a href="#faq">よくある質問</a
         ><a class="nav-cta" href="#availability"
           >開発状況を見る <span aria-hidden="true">↗</span></a
         >
@@ -75,7 +75,7 @@
             動画を見る。<br />知識が、<span class="accent-word">残る。</span>
           </h1>
           <p class="hero-description">
-            YouTubeも、手元の講義も。<br />メモ、スクショ、復習まで、ひとつの場所で。
+            YouTubeも、手元の講義も。<br />本棚から選び、ノートと復習へ。一画面、一つのことに集中。
           </p>
           <div class="hero-actions">
             <a class="button button-dark" href="#workflow"
@@ -94,193 +94,17 @@
           <p>見る、残す、<br />覚える、戻る。</p>
           <span class="vertical-rule" aria-hidden="true"></span>
         </div>
-        <div
-          class="workspace-preview"
-          aria-label="学習画面のインタラクティブなイメージ"
-        >
-          <div class="preview-bar">
-            <div class="window-dots" aria-hidden="true">
-              <i></i><i></i><i></i>
-            </div>
-            <span>あなたの学習ワークスペース</span
-            ><span class="preview-tag">画面イメージ</span>
-          </div>
-          <div class="preview-inner">
-            <aside class="demo-sidebar" aria-hidden="true">
-              <div class="demo-logo">
-                <img
-                  src="./assets/icon.svg"
-                  alt=""
-                  width="26"
-                  height="26"
-                />動画学習
-              </div>
-              <span class="demo-side-active">▦ 教材ライブラリ</span
-              ><span>◈ 今日の復習</span><span>◇ 分からない箇所</span
-              ><small>MY COURSES</small
-              ><span class="demo-course">● 図形の基礎</span
-              ><span class="demo-subcourse">三角形と円</span>
-              <div class="demo-local"><i></i>ローカルに保存</div>
-            </aside>
-            <div class="demo-main">
-              <div class="demo-heading">
-                <span>図形の基礎 / 三角形と円</span
-                ><span class="demo-lesson-count">第 2 講</span>
-              </div>
-              <div
-                class="demo-scene"
-                id="scene-notes"
-                role="tabpanel"
-                aria-labelledby="tab-notes"
-              >
-                <div class="demo-player">
-                  <div class="player-title">図の違いを、ひとつずつ。</div>
-                  <svg
-                    class="lesson-diagram"
-                    viewBox="0 0 540 245"
-                    role="img"
-                    aria-label="青い三角形と赤い円の教材イメージ"
-                  >
-                    <defs>
-                      <pattern
-                        id="dot-grid"
-                        width="22"
-                        height="22"
-                        patternUnits="userSpaceOnUse"
-                      >
-                        <circle cx="2" cy="2" r="1" fill="#dddce3" />
-                      </pattern>
-                    </defs>
-                    <rect width="540" height="245" fill="url(#dot-grid)" />
-                    <path d="M92 185 177 42 262 185z" fill="#9d90cf" />
-                    <circle cx="397" cy="117" r="72" fill="#d8927c" />
-                    <text x="177" y="220" text-anchor="middle">三角形</text>
-                    <text x="397" y="220" text-anchor="middle">円</text>
-                  </svg>
-                  <div class="player-bottom">
-                    <button
-                      type="button"
-                      id="demo-play"
-                      aria-label="イメージの再生を開始"
-                    >
-                      <svg viewBox="0 0 24 24" aria-hidden="true">
-                        <path d="m8 5 11 7-11 7z" />
-                      </svg></button
-                    ><span id="demo-time">12:43</span
-                    ><span class="demo-scrubber" aria-hidden="true"
-                      ><i></i><b></b></span
-                    ><span>24:00</span>
-                  </div>
-                </div>
-                <div class="demo-tools">
-                  <span>▣ スクショ</span><span>☆ 重要</span
-                  ><span>◇ 分からない</span><span>◈ カード作成</span>
-                </div>
-              </div>
-              <div
-                class="demo-scene demo-shot-scene"
-                id="scene-shots"
-                role="tabpanel"
-                aria-labelledby="tab-shots"
-                hidden
-              >
-                <div class="demo-shot">
-                  <img
-                    src="./assets/diagram.png"
-                    width="800"
-                    height="500"
-                    alt="青い三角形と赤い円を保存したサンプル画像"
-                  /><span class="shot-outline" aria-hidden="true"></span
-                  ><span class="shot-label">ここ、重要。</span>
-                </div>
-                <p>
-                  <span>12:43</span> 画像も、書き込みも、動画の時刻と一緒に。
-                </p>
-              </div>
-              <div
-                class="demo-scene demo-card-scene"
-                id="scene-review"
-                role="tabpanel"
-                aria-labelledby="tab-review"
-                hidden
-              >
-                <small>図形の基礎 · 12:43</small>
-                <h3>三角形には、何本の辺がある？</h3>
-                <div class="demo-answer" id="demo-answer" hidden>
-                  3本。<span>忘れたら、元の説明に戻れます。</span>
-                </div>
-                <button
-                  class="demo-answer-button"
-                  id="demo-answer-button"
-                  type="button"
-                  aria-expanded="false"
-                  aria-controls="demo-answer"
-                >
-                  答えをめくる <span aria-hidden="true">↻</span></button
-                ><a href="#screens">元動画とつながる復習を見る ↗</a>
-              </div>
-              <div
-                class="preview-tabs"
-                role="tablist"
-                aria-label="学習画面を切り替える"
-              >
-                <button
-                  id="tab-notes"
-                  role="tab"
-                  type="button"
-                  aria-selected="true"
-                  aria-controls="scene-notes"
-                  data-scene="notes"
-                >
-                  動画とノート</button
-                ><button
-                  id="tab-shots"
-                  role="tab"
-                  type="button"
-                  aria-selected="false"
-                  aria-controls="scene-shots"
-                  data-scene="shots"
-                  tabindex="-1"
-                >
-                  スクリーンショット</button
-                ><button
-                  id="tab-review"
-                  role="tab"
-                  type="button"
-                  aria-selected="false"
-                  aria-controls="scene-review"
-                  data-scene="review"
-                  tabindex="-1"
-                >
-                  フラッシュカード
-                </button>
-              </div>
-            </div>
-            <aside class="demo-notes">
-              <div class="notes-heading">
-                タイムスタンプノート<span>2件</span>
-              </div>
-              <div class="sample-note">
-                <span class="note-time">12:43</span
-                ><span class="note-label important">☆ 重要</span>
-                <p>三角形と円の違いを覚える。</p>
-                <div class="note-underline" aria-hidden="true"></div>
-              </div>
-              <div class="sample-note">
-                <span class="note-time">18:05</span
-                ><span class="note-label confused">◇ 分からない</span>
-                <p>この説明をもう一度確認する。</p>
-              </div>
-              <div class="saved-toast">
-                <span>✓</span> 動画の時刻と一緒に保存
-              </div>
-            </aside>
+        <div class="product-preview">
+          <div class="preview-bar"><span>本棚から、今日の学びへ。</span><span class="preview-tag">実装画面 · 0.14.1</span></div>
+          <div id="hero-screen-panel" role="tabpanel" aria-labelledby="hero-tab-shelf"><img id="hero-screen" src="./assets/real-bookshelf.png" alt="本棚からコースを選ぶ実装画面。教材名と件数はサンプル。" width="1280" height="1013" fetchpriority="high"></div>
+          <div class="screen-switches" role="tablist" aria-label="実装画面を切り替える">
+            <button id="hero-tab-shelf" role="tab" aria-selected="true" aria-controls="hero-screen-panel" data-screen="bookshelf" tabindex="0">1 本棚</button>
+            <button id="hero-tab-select" role="tab" aria-selected="false" aria-controls="hero-screen-panel" data-screen="selection" tabindex="-1">2 教材を選ぶ</button>
+            <button id="hero-tab-notes" role="tab" aria-selected="false" aria-controls="hero-screen-panel" data-screen="notes" tabindex="-1">3 ノートを残す</button>
+            <button id="hero-tab-review" role="tab" aria-selected="false" aria-controls="hero-screen-panel" data-screen="review" tabindex="-1">4 復習する</button>
           </div>
         </div>
-        <p class="preview-caption">
-          <span>ひとつの画面で、学びをつなぐ。</span
-          ><span>操作できる画面イメージです。実際の動画は再生しません。</span>
-        </p>
+        <p class="preview-caption"><span>一画面、一つのことに集中する。</span><span>配布アプリに同梱したUIのブラウザ撮影 / サンプル教材 / 静止画の切り替えです</span></p>
       </section>
       <section class="intro-band section-wrap" aria-label="アプリのコンセプト">
         <p>講義を見終えた、その先へ。</p>
@@ -377,7 +201,7 @@
               いつものYouTubeページから動画を選択。公開プレイリストは、投稿者と講座にまとめて取り込めます。
             </p>
             <p>
-              元の講義順で進めて、次の動画へ。講座全体の進捗と残り時間も確認できます。
+              元の講義順で進めて、次の動画へ。講座ごとの進捗も確認できます。
             </p>
             <div class="feature-tags">
               <span>ページから動画を選ぶ</span><span>プレイリスト連携</span
@@ -505,42 +329,19 @@
           ><span class="ai-orbit orbit-two" aria-hidden="true"></span>
         </div>
       </section>
-      <section
-        class="real-screen section-wrap"
-        id="screens"
-        aria-labelledby="screen-title"
-      >
-        <div class="section-heading">
-          <div>
-            <span class="eyebrow">INSIDE THE APP</span>
-            <h2 id="screen-title">
-              思い出せなければ、<br />その説明に戻ればいい。
-            </h2>
-          </div>
-          <p>
-            選んだ重要範囲を画像カードに。<br />復習と元動画が、つながったまま。
-          </p>
-        </div>
-        <button
-          type="button"
-          class="real-screen-button"
-          id="open-screen"
-          aria-haspopup="dialog"
-          aria-label="実際のアプリの復習画面を拡大する"
-        >
-          <img
-            src="./assets/app-review.png"
-            width="1280"
-            height="901"
-            alt="実際のアプリの復習画面。重要範囲の青い三角形を画像カードに表示し、元動画へ戻るボタンとコース別の復習を備えている。"
-            loading="lazy"
-          /><span class="screen-expand"
-            >画面を拡大 <span aria-hidden="true">↗</span></span
-          >
-        </button>
-        <p class="screen-caption">
-          実装済みのMacアプリ画面 / サンプル教材を使用
-        </p>
+      <section class="real-screen section-wrap" id="screens" aria-labelledby="screen-title">
+        <div class="section-heading"><div><span class="eyebrow">ONE SCREEN, ONE TASK</span><h2 id="screen-title">選ぶ。残す。思い出す。<br>画面ごとに、ひとつずつ。</h2></div><p>本棚の落ち着いた雰囲気と、<br>迷いにくい段階式の操作を組み合わせました。</p></div>
+        <div class="real-gallery">
+<figure><button type="button" class="real-screen-button" data-open-screen="bookshelf" aria-haspopup="dialog" aria-label="本棚から選ぶの実装画面を拡大"><img src="./assets/real-bookshelf.png" alt="本棚から選ぶの実装画面。サンプル教材を使用。" width="1280" height="1013" loading="lazy"><span class="screen-expand">画面を拡大 ↗</span></button><figcaption><strong>本棚から選ぶ</strong><p>コースを本の表紙で並べ、学びたい教材を開きます。</p></figcaption></figure><figure><button type="button" class="real-screen-button" data-open-screen="selection" aria-haspopup="dialog" aria-label="教材を決めるの実装画面を拡大"><img src="./assets/real-selection.png" alt="教材を決めるの実装画面。サンプル教材を使用。" width="1280" height="929" loading="lazy"><span class="screen-expand">画面を拡大 ↗</span></button><figcaption><strong>教材を決める</strong><p>動画を選び、開始ボタンで学習に進みます。</p></figcaption></figure><figure><button type="button" class="real-screen-button" data-open-screen="notes" aria-haspopup="dialog" aria-label="ノートに集中するの実装画面を拡大"><img src="./assets/real-notes.png" alt="ノートに集中するの実装画面。サンプル教材を使用。" width="1280" height="996" loading="lazy"><span class="screen-expand">画面を拡大 ↗</span></button><figcaption><strong>ノートに集中する</strong><p>動画を一時停止し、その時刻と一緒に気づきを保存。</p></figcaption></figure><figure><button type="button" class="real-screen-button" data-open-screen="review" aria-haspopup="dialog" aria-label="思い出すことに集中するの実装画面を拡大"><img src="./assets/real-review.png" alt="思い出すことに集中するの実装画面。サンプル教材を使用。" width="1280" height="903" loading="lazy"><span class="screen-expand">画面を拡大 ↗</span></button><figcaption><strong>思い出すことに集中する</strong><p>カードの答えを確かめ、必要なら元動画へ戻れます。</p></figcaption></figure>
+        </div><p class="screen-caption">0.14.1の配布アプリに同梱したUI / ブラウザで撮影した実装画面 / 掲載教材・件数はサンプルです</p>
+      </section>
+      <section class="section-wrap verification" id="verification" aria-labelledby="verification-title">
+        <div class="section-heading"><div><span class="eyebrow">CHECKED, NOT ASSUMED</span><h2 id="verification-title">動くことを、確認してから。</h2></div><p>実装した機能と、<br>販売前に残る準備を分けてお伝えします。</p></div>
+        <div class="verification-grid"><article><h3>確認済み</h3><p>最新の回帰テスト129件が成功。HTTP連携・保存・復元・復習・ライセンスの境界を検査しています。</p><p>MacBook Air M2・16GBで、動画再生・ノート・カード・YouTube選択・バックアップ等を実機確認。ローカルAI処理も実測しています。</p><p>新UIと復旧したコース別進捗は、最新版の配布サーバーで操作確認しました。</p></article><article><h3>販売前に残ること</h3><p>正式名称・価格・購入先、実注文から配送までの確認、Apple署名・公証、開発環境のない別のMacでの初回導入確認が残っています。</p><p>現時点は開発・販売準備段階です。学習効果やすべてのMacでの動作を保証する検証ではありません。</p><p>最新の回帰確認ではAI実モデルの3件を省略。AIの実測は過去の実機検証に基づきます。</p></article></div>
+      </section>
+      <section class="section-wrap development-history" id="history" aria-labelledby="history-title">
+        <div class="section-heading"><div><span class="eyebrow">HOW IT HAS GROWN</span><h2 id="history-title">学びやすさに向けて、<br>積み重ねた変更。</h2></div></div>
+        <ol><li><strong>0.14.1 · 進捗への入口を確認・復旧</strong><p>新UIでもコース別進捗を独立画面で確認できるようにしました。</p></li><li><strong>0.14.0 · 本棚と一画面一機能</strong><p>教材選択・視聴・ノート・資料・復習を整理。ノートへの切り替えで一時停止します。</p></li><li><strong>0.13.0–0.13.1 · 学習のペースとデータ保護</strong><p>0.25〜2倍速、A–Bリピート、自動バックアップ、目的別の設定を追加。</p></li><li><strong>0.11.0–0.12.0 · 自分の学習リスト</strong><p>名前・順序・教材を編集し、直前の編集も取り消せます。YouTubeの接続案内も改善。</p></li><li><strong>0.8.0–0.10.0 · ローカル完結とAI候補の確認</strong><p>外部接続を初期状態で停止。原文の根拠付きカード候補、診断、配布検査を追加。</p></li></ol>
       </section>
       <section
         class="availability section-wrap"
@@ -555,7 +356,7 @@
             </h2>
           </div>
           <p>
-            無料版＋買い切りProを予定しています。<br />現在は全機能を使える開発版です。
+            無料版＋買い切りProを予定しています。<br />開発用の全機能版と、購入後にProを登録する無料版を準備しています。
           </p>
         </div>
         <div class="plan-grid">
@@ -568,7 +369,7 @@
               <li>タイムスタンプ付きノート</li>
               <li>スクリーンショットと基本的な書き込み</li>
               <li>手動の文字・画像カードと間隔反復</li>
-              <li>バックアップ・復元・データ書き出し</li>
+              <li>手動・自動バックアップ、復元、データ書き出し</li>
             </ul>
           </article>
           <article class="plan plan-pro">
@@ -588,7 +389,7 @@
           </article>
         </div>
         <div class="release-note">
-          <span class="release-badge">開発版 0.13.0</span>
+          <span class="release-badge">開発版 0.14.1</span>
           <div>
             <strong>現在の対応：Apple Silicon / macOS 14以降</strong>
             <p>
@@ -683,20 +484,6 @@
       <p>あなたの動画学習を、ひとつの場所に。</p>
       <span>紹介ページ / 開発中のアプリ</span>
     </footer>
-    <dialog id="screen-dialog" aria-labelledby="screen-dialog-title">
-      <div class="dialog-header">
-        <h2 id="screen-dialog-title">実際の復習画面</h2>
-        <button type="button" id="close-screen" aria-label="画面を閉じる">
-          ×
-        </button>
-      </div>
-      <img
-        src="./assets/app-review.png"
-        width="1280"
-        height="901"
-        alt="青い三角形の重要範囲を表示した、Macアプリの画像カード復習画面。"
-      />
-      <p>サンプル教材を使用しています。</p>
-    </dialog>
+    <dialog id="screen-dialog" aria-labelledby="screen-dialog-title"><div class="dialog-header"><h2 id="screen-dialog-title">実装画面</h2><button type="button" id="close-screen" aria-label="画面を閉じる">×</button></div><img id="dialog-screen" src="./assets/real-bookshelf.png" alt="本棚の実装画面"><p>0.14.1の実装画面。教材・件数はサンプルです。</p></dialog>
   </body>
 </html>
