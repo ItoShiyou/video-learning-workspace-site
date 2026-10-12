@@ -15,7 +15,7 @@ HTML・CSS・JavaScriptだけで動く、GitHub Pages向けの紹介ページで
 - `.github/workflows/pages.yml`：mainへのpushでGitHub Pagesへデプロイ
 - `scripts/check-site.py`：画像やリンク、ARIA参照、相対パスなどの確認
 
-掲載した教材や数値は画面イメージ用のサンプルです。口コミ・利用者数・販売実績を架空に追加していません。正式名称は「しおり」。正式配布はMac App Storeのみ、StoreKitによる無料版＋買い切りProを準備中です。日本Pro価格は本人指定の1,980円を予定し、Appleへの価格設定と発売時期は未確定です。正式App Store URLが確定するまで購入・ダウンロードボタンは置きません。
+掲載した教材や数値は画面イメージ用のサンプルです。口コミ・利用者数・販売実績を架空に追加していません。正式名称は「しおり」。正式配布はMac App Storeのみ、StoreKitによる無料版＋買い切りProを準備中です。日本Pro価格は本人指定の税込1,980円でAppleに設定済みです。提出用ビルドのアップロードと内部TestFlightビルド準備は完了していますが、TestFlight実機試験・審査・発売時期は未確定です。正式App Store URLが確定するまで購入・ダウンロードボタンは置きません。
 
 ## ローカルで確認
 
