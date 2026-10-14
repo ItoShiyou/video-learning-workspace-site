@@ -71,5 +71,5 @@
 
 - YouTube IFrame Player APIの`controls:0`を検出。Google公式ポリシーが標準プレイヤー機能を隠すことを例示付きで禁止しているため、学習用ツールバーを保ったまま標準プレイヤー操作も見せる`controls:1`へ修正し、build 0.25.5/0.25.6へ含めた。YouTube字幕/プレイリスト自動取得への権利許可は未確認で、継続可否の判断は保留。
 - [x] macOS向けIFrameプレイヤーを専用WKWebViewへ分離し、`loadHTMLString(_:baseURL:)`のbaseURLとIFrame `origin`にHTTPS Bundle IDを指定。画面外・ActivationPolicy`.prohibited`の検証でIFrame APIの準備完了と動画画面のスクリーンショットを確認し、build 0.25.6に含めた。Xcodeの`build-for-testing`も成功。Refererヘッダーの直接記録、アプリ全体の画面・再生操作回帰、TestFlight検証は未実施。
-- [ ] 無料10教材/Pro無制限の上限はYouTube教材にも適用される。YouTube視聴への課金・アクセス制限と解釈されるか、YouTubeの無料サービスとProの独立機能を分けられるかを確認する。許可・解釈が確定するまで違反とも適合とも記載しない。
+- [ ] **仕様判断待ち:** 現行の無料10教材上限はYouTube教材にも適用され、11本目のYouTube教材登録・視聴をPro購入まで止める。GoogleのDeveloper Policiesは埋め込み動画の視聴課金と、再生以外の操作で視聴アクセスを制限することを禁じるため、現仕様には強い適合リスクがある。販売準備の推奨案はYouTube教材を無料枠から除外し、ローカル教材だけ10本上限、ProのAI自動化・検索・ローカル教材無制限を維持すること。無料/Pro境界を変える主要仕様のため、本人の選択前には実装を変更しない。対象はローカル動画追加、YouTube直接追加、プレイリスト取込、ゴミ箱復元で、実装根拠はアプリ本体repoの`docs/YOUTUBE_PERMISSION_REVIEW.md`。
 - [ ] YouTube字幕/プレイリスト自動取得の書面許可と、字幕・スクリーンショット等の保存に関する権利根拠を確認する。回答は「権利・許可の確認後に判断する」であり、現行取得方式の継続や移行は未決定。
