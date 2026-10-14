@@ -51,12 +51,12 @@
 ## 現在の確認状態（2026-10-14、上記の初期チェックリストを更新）
 
 ### できていること
-- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。TestFlight配信済みはversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。FFmpeg 8.0.3を同梱した0.25.0 / build 0.25.4のApp Store署名pkgをローカル生成し、配布プロファイル/パッケージ構造検査に合格したが、Appleへ未アップロード。
+- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。TestFlight配信済みはversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。FFmpeg 8.0.3を同梱した0.25.0 / build 0.25.4のApp Store署名pkgをローカル生成し、配布プロファイル/パッケージ構造検査に合格したが、その後のAppleへのアップロード状況は未確認。
 - App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。配布候補のバンドル・署名・プロファイル・pkg検査はローカルでPASS。
 - ローカル動画、ノート、スクリーンショット、復習カード、本棚、学習履歴、バックアップ/復元、再起動後の保持をTestFlightで確認。Python回帰テスト、StoreKit仮想テスト、ループバック統合テストも実行済み。TestFlightの確認はこのMacの1環境に限る。
 - 無料版は教材10本まで。買い切りProはStoreKit非消耗型で、Product ID `io.github.itoshiyou.shiori.pro`。日本価格は税込1,980円。商品取得、購入シート、キャンセル、未購入時の復元を確認。
 - App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリ、およびTestFlight用ビルドを設定済み。年齢区分は申告内容に基づき16+（地域により異なる）。
-- Apple側で処理済みの最新TestFlightビルドは0.25.0 (build 0.25.2)。build 0.25.3はad-hoc署名のローカルQA版、build 0.25.4は配布署名pkgまで作成した未アップロード候補である。どちらもTestFlight確認済みとは扱わない。
+- Apple側で処理済みの最新TestFlightビルドは0.25.0 (build 0.25.2)。build 0.25.3はad-hoc署名のローカルQA版、build 0.25.4は配布署名pkgまで作成した候補で、TestFlightへの配信状況は未確認である。どちらもTestFlight確認済みとは扱わない。
 - 紹介ページには正式App Storeリンクや外部決済を置いていない。販売開始前の案内にとどめている。
 
 ### 提出前に残るゲート
