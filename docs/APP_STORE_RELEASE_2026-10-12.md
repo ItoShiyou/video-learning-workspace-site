@@ -47,3 +47,22 @@
 - https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/create-consumable-or-non-consumable-in-app-purchases/
 - https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/
 - https://developer.apple.com/app-store/review/
+
+## 現在の確認状態（2026-10-14、上記の初期チェックリストを更新）
+
+### できていること
+- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。配布候補はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。App Store用署名とMac App Storeプロファイルを含むpkgがTestFlightで処理済み。
+- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。配布候補のバンドル・署名・プロファイル・pkg検査はローカルでPASS。
+- ローカル動画、ノート、スクリーンショット、復習カード、本棚、学習履歴、バックアップ/復元、再起動後の保持をTestFlightで確認。Python回帰テスト、StoreKit仮想テスト、ループバック統合テストも実行済み。TestFlightの確認はこのMacの1環境に限る。
+- 無料版は教材10本まで。買い切りProはStoreKit非消耗型で、Product ID `io.github.itoshiyou.shiori.pro`。日本価格は税込1,980円。商品取得、購入シート、キャンセル、未購入時の復元を確認。
+- App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリ、およびTestFlight用ビルドを設定済み。年齢区分は申告内容に基づき16+（地域により異なる）。
+- 紹介ページには正式App Storeリンクや外部決済を置いていない。販売開始前の案内にとどめている。
+
+### 提出前に残るゲート
+- TestFlight購入シートに確定ボタンが表示されず、実取引・Pro解除・返金後の権利解除は未確認。StoreKitのXcode仮想テストは通過しているが、実Sandbox取引の代替にはならない。
+- YouTube字幕/プレイリスト自動取得はyt-dlpを使用する。権利者等の書面許可を確認してから販売版での扱いを決める方針で、許可は確認済みとしていない。紹介ページではこの機能の提供が未確定であることを表示。
+- YouTube等の第三者サービスを含むApp Privacy回答は未提出。プライバシーポリシーとサポートページはHTML草案で、公開URLの稼働確認・App Store Connectへの登録が必要。
+- App Store用スクリーンショット、IAP審査用画像、App Review連絡先が未登録。紹介ページ内の参考画面は0.20.0のため、提出画像として流用しない。
+- Account Holderによる最新Developer Program契約の確認、EU配信の選択と必要なDSAトレーダー申告は本人判断が必要。一般公開・App Review提出は行っていない。
+
+この状態メモは内部作業用の進捗記録であり、発売済み・審査提出済みを意味しない。正式なApp Store URLが確定するまで、購入・ダウンロードリンクを作成しない。
