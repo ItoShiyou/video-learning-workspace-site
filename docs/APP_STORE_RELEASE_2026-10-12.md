@@ -51,8 +51,8 @@
 ## 現在の確認状態（2026-10-14更新）
 
 ### できていること
-- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。利用者のMacでインストールと機能確認ができたTestFlight版はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。最新ソースbuild 0.25.9はApp Sandboxを有効にしたad-hoc QAアプリで、ICNSとローカル配布物検査に合格したが、提出pkgではなくAppleへアップロードしていない。署名候補build 0.25.6は現行のICNS・コード署名検査に不合格のため提出には使わない。Transporterでの旧候補配送操作について本人報告はあるが、最新のApple受領・処理状態は確認できていない。
-- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。最新build 0.25.9のSandbox・ICNS・配布物検査はローカルでPASS。配布証明書と一致する有効な秘密鍵identityは現在のキーチェーンにないため、配布署名pkgは未生成。
+- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。利用者のMacでインストールと機能確認ができたTestFlight版はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。最新ソースbuild 0.25.9はApp Sandboxを有効にしたad-hoc QAアプリで、ICNS・Privacy Manifest・ローカル配布物検査に合格したが、提出pkgではなくAppleへアップロードしていない。署名候補build 0.25.6は現行のICNS・コード署名検査に不合格のため提出には使わない。Transporterで直近配送を開始したとの本人報告はあるが、Appleの最新受領・処理状態は確認できていない。
+- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。build 0.25.9を現行`check-app-store.py`と`check-release.py`で再検査しPASS。`security find-identity -v -p codesigning`は0件で、DownloadsのMac App Distribution/Mac Installer Distribution証明書は新CSR秘密鍵と一致しないため、配布署名pkgは未生成。新CSR対応のApple証明書発行が必要。
 - ローカル動画、ノート、スクリーンショット、復習カード、本棚、学習履歴、バックアップ/復元、再起動後の保持をTestFlightで確認。Python/loopback統合テスト219件中216成功、AI実モデル3件をスキップ、失敗0。StoreKit仮想テストは8件中7成功、失敗0、ネイティブ購入ダイアログのキャンセル1件をスキップ。購入、Ask to Buy承認、権利復元、オフライン保持、返金後の解除と再購入を仮想セッションで確認。TestFlight確認はこのMacの1環境に限る。
 - 無料版は教材10本まで。買い切りProはStoreKit非消耗型で、Product ID `io.github.itoshiyou.shiori.pro`。日本価格は税込1,980円。商品取得、購入シート、キャンセル、未購入時の復元を確認。
 - App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリ、およびTestFlight用ビルドを設定済み。年齢区分は申告内容に基づき16+（地域により異なる）。
