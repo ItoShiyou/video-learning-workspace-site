@@ -33,9 +33,9 @@
 **注**：本体最新版の実機確認まで、アプリの機能・無料Pro範囲を断定した正式商品説明には使用しない。販売前は「公開準備中」。
 
 ## 人の操作が必要なブロッカー（ユーザーへ簡潔に報告）
-1. App Store Connect「ビジネス」→有料アプリ契約（同意後は取消不可）→税務フォーム・銀行口座。
-2. Small Business Programは対象なら別途申請。参加・承認状況を確認（自動15%ではない）。
-3. Bundle IDとApp Record、IAP製品ID、Pro価格、配信地域を確定。
+1. Account HolderがApple Developer Program/有料アプリ契約、税務、銀行のApp Store Connect状態を確認し、必要な手続きを完了する。
+2. EU配信を行う場合、本人が配信地域とDSAトレーダー状態を確認・申告する。
+3. YouTube字幕・プレイリスト自動取得の許可を確認し、販売版での扱いを決める。App Review連絡先、プライバシー回答、サポート/プライバシーURLの登録も残る。
 4. Apple Account/2FA/証明書署名・最終審査提出と公開判断は本人管理。秘密鍵・パスワード・トークンをGitHubやAI会話へ貼らない。
 
 ## 出荷条件
@@ -51,12 +51,12 @@
 ## 現在の確認状態（2026-10-14、上記の初期チェックリストを更新）
 
 ### できていること
-- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。TestFlight配信を確認済みの最新はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。0.25.0 / build 0.25.6は、FFmpeg 8.0.3とIFrame API向け分離WKWebViewを含むApp Store配布署名済みpkgとしてローカル生成。署名・プロファイル・pkg検査に合格し、SHA-256は`041c1e8b4f8072b34e3fcbf3dd0cf42f2e58a1637ee417ab7586fead95e02997`。Appleへのアップロードは未実施。
+- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。TestFlight配信を確認済みの最新はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。0.25.0 / build 0.25.6は、FFmpeg 8.0.3とIFrame API向け分離WKWebViewを含むApp Store配布署名済みpkgとしてローカル生成。署名・プロファイル・pkg検査に合格し、SHA-256は`041c1e8b4f8072b34e3fcbf3dd0cf42f2e58a1637ee417ab7586fead95e02997`。Transporterの配送ボタンを押したとの本人報告があるが、Appleの受領・処理状態は未確認。アップロード完了とも未送信とも断定しない。
 - App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。配布候補のバンドル・署名・プロファイル・pkg検査はローカルでPASS。
-- ローカル動画、ノート、スクリーンショット、復習カード、本棚、学習履歴、バックアップ/復元、再起動後の保持をTestFlightで確認。Python回帰テスト、StoreKit仮想テスト、ループバック統合テストも実行済み。TestFlightの確認はこのMacの1環境に限る。
+- ローカル動画、ノート、スクリーンショット、復習カード、本棚、学習履歴、バックアップ/復元、再起動後の保持をTestFlightで確認。Python回帰テスト、StoreKit仮想テスト、ループバック統合テストも実行済み。直近では全216件（193成功、23スキップ、失敗0）とloopback統合31件（成功、失敗0）を確認。TestFlightの確認はこのMacの1環境に限る。
 - 無料版は教材10本まで。買い切りProはStoreKit非消耗型で、Product ID `io.github.itoshiyou.shiori.pro`。日本価格は税込1,980円。商品取得、購入シート、キャンセル、未購入時の復元を確認。
 - App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリ、およびTestFlight用ビルドを設定済み。年齢区分は申告内容に基づき16+（地域により異なる）。
-- Apple側で処理済みの最新TestFlightビルドは0.25.0 (build 0.25.2)。build 0.25.3はad-hoc署名のローカルQA版、build 0.25.4/0.25.5は旧候補。build 0.25.6は配布署名pkgまで作成済みだが、TestFlightへはまだ送信していない。
+- Apple側で処理済みの最新TestFlightビルドは0.25.0 (build 0.25.2)。build 0.25.3はad-hoc署名のローカルQA版、build 0.25.4/0.25.5は旧候補。build 0.25.6は配布署名pkgまで作成済み。Transporterの操作後、Apple側の配送記録・処理・TestFlight状態は未確認。
 - 紹介ページには正式App Storeリンクや外部決済を置いていない。販売開始前の案内にとどめている。
 
 ### 提出前に残るゲート
