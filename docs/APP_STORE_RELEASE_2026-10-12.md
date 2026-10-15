@@ -1,13 +1,13 @@
 # しおり | Mac App Store公開チェックリスト（2026-10-12）
 
-## 現行状態（2026-10-15更新）
-- 最新の配布署名済み候補: version 0.25.0 / build 0.25.16、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。pkg SHA-256 `e4fc29287a1044dcbed4dd5e3975392ca8cfc4dcb9b7e6e412fbca1b1d37a06f`。配布署名、プロファイル、Sandbox entitlements、App Store package checker、独立配布物検査を確認。
-- 現行アプリ回帰テストは232件、失敗0、実AIモデル3件をスキップ。StoreKit/NativeBridgeの画面外テストは12件中11件成功、購入ダイアログの対話操作1件をスキップ、失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
+## 現行状態（2026-10-16更新）
+- 最新のローカル配布署名済み候補: version 0.25.0 / build 0.25.18、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。pkg SHA-256 `e3f499661b80aa26d64cdc3c647f159a6316664c7a3c4eefe5e1ef151d2c6ba5`。Apple配布署名、プロファイル、Sandbox entitlements、App Store package checker、独立配布物検査、画面外XCTestを確認。Appleへの配送は未実施。
+- 現行アプリ回帰テストは234件、失敗0、実AIモデル3件をスキップ。build 0.25.18のStoreKit/NativeBridge画面外テストは13件中12件成功、購入ダイアログの対話操作1件をスキップ、失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
 - build 0.25.16はTransporter配送とApple処理完了を確認済み。App Store ConnectのTestFlightで「提出準備完了」、内部テスター1名への割当を確認。本人がTestFlightからインストールして起動したと報告。表示画面と主要機能の操作結果は未確認。
 - App Store version 0.25.0にbuild 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。
 - 日本のアプリ価格は無料、Proは税込1,980円。初回の配信対象は174地域で、フランスを除外。Paid Apps契約・銀行・税務は2026-10-15に有効表示を確認。EU DSA申告とEU販売方針は未確定。
 - App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定。別Macでのテストと実Sandbox購入・返金も未実施。
-- YouTube字幕・プレイリスト自動取得の書面許可、動画別Made for Kids確認、YouTube教材にも適用中の無料10本上限の扱いは未解決。字幕・プレイリスト方針は本人の指示で保留中。販売適合性は確定していない。
+- YouTube字幕・プレイリスト自動取得の書面許可、動画別Made for Kids確認、App Privacy回答は未解決。無料10本枠はローカル動画だけを数え、YouTube教材を枠外とする仕様を本人が2026-10-16に決定し、build 0.25.18へ実装・テスト済み。字幕・プレイリスト方針は本人の指示で保留中。販売適合性は確定していない。
 - 紹介サイトの修正はDraft PR #3でレビュー中。正式なApp Store URLが発行されるまでは購入・ダウンロードURLを置かない。PRのマージ、Pages公開、App Review提出、一般公開は未実施。
 
 ## 販売方式・優先順位
@@ -61,13 +61,13 @@
 ## 2026-10-14時点の確認状態（当時の履歴）
 
 ### できていること
-- 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。利用者のMacでインストールと機能確認ができたTestFlight版はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。最新ソースbuild 0.25.9はApp Sandboxを有効にしたad-hoc QAアプリで、ICNS・Privacy Manifest・ローカル配布物検査に合格したが、提出pkgではなくAppleへアップロードしていない。署名候補build 0.25.6は現行のICNS・コード署名検査に不合格のため提出には使わない。Transporterで直近配送を開始したとの本人報告はあるが、Appleの最新受領・処理状態は確認できていない。
-- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。build 0.25.9を現行`check-app-store.py`と`check-release.py`で再検査しPASS。`security find-identity -v -p codesigning`は0件で、DownloadsのMac App Distribution/Mac Installer Distribution証明書は新CSR秘密鍵と一致しないため、配布署名pkgは未生成。新CSR対応のApple証明書発行が必要。
-- ローカル動画、ノート、スクリーンショット、復習カード、本棚、学習履歴、バックアップ/復元、再起動後の保持をTestFlightで確認。Python/loopback統合テスト219件中216成功、AI実モデル3件をスキップ、失敗0。StoreKit仮想テストは8件中7成功、失敗0、ネイティブ購入ダイアログのキャンセル1件をスキップ。購入、Ask to Buy承認、権利復元、オフライン保持、返金後の解除と再購入を仮想セッションで確認。TestFlight確認はこのMacの1環境に限る。
-- 無料版は教材10本まで。買い切りProはStoreKit非消耗型で、Product ID `io.github.itoshiyou.shiori.pro`。日本価格は税込1,980円。商品取得、購入シート、キャンセル、未購入時の復元を確認。
-- App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリ、およびTestFlight用ビルドを設定済み。年齢区分は申告内容に基づき16+（地域により異なる）。
-- Apple側でTestFlight配信されたことを確認したbuildは0.25.2。build 0.25.9は最新ローカルQA版で、TestFlight版ではない。build 0.25.6のTransporter操作後の配送・処理記録は未確認。App Store Connect APIキー未設定のため現時点でAPI照会できない。
-- 紹介ページには正式App Storeリンクや外部決済を置いていない。販売開始前の案内にとどめている。
+- アプリ本体は紹介サイトとは別のローカルmacOSプロジェクトです。build 0.25.18は正式Bundle ID/Product IDとApp Store配布署名・Sandbox profileを使用してpkgまで生成し、package checker、release checker、署名検査、画面外XCTestに合格しました。pkgはアプリ本体repoの`dist/app-store-submission-v13-youtube-free-cap-excluded/Shiori-AppStore.pkg`です。Appleへの配送は未実施。
+- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。build 0.25.18の`check-app-store.py`と`check-release.py`は許可付き検証でPASS。Apple証明書チェーンとprofileを検証済み。
+- 2026-10-16のPython/loopback統合テストは234件、失敗0、AI実モデル3件をスキップ。build 0.25.18の画面外StoreKit/NativeBridgeテストは13件中12件成功、購入ダイアログ操作1件skip、失敗0。これらは実App Store Sandbox購入の代替ではない。
+- 無料版はローカル動画10本まで、YouTube教材は登録本数無制限とする仕様を本人が決定。直接追加、プレイリスト取込、ゴミ箱復元、ローカル動画上限、設定画面の表示に実装し、回帰テスト済み。買い切りProはStoreKit非消耗型、Product ID `io.github.itoshiyou.shiori.pro`、日本価格は税込1,980円。
+- App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリおよびTestFlight用build 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚は登録済み。IAPは「提出準備中」、審査提出は未実施。
+- Apple側で処理・TestFlight割当を最後に確認したbuildは0.25.16。build 0.25.18はローカルpkgまでで未配送。App Store Connect API鍵は未設定。
+- 紹介ページはDraft PR #3で、正式App Storeリンク・外部決済・ダウンロードリンクを置いていません。PR merge、Pages公開、App Review提出、一般公開は未実施。
 
 ### 提出前に残るゲート
 - TestFlight購入シートに確定ボタンが表示されず、実取引・Pro解除・返金後の権利解除は未確認。StoreKitのXcode仮想テストは7件成功・1件スキップで通過しているが、実Sandbox取引の代替にはならない。
@@ -81,5 +81,5 @@
 
 - YouTube IFrame Player APIの`controls:0`を検出。Google公式ポリシーが標準プレイヤー機能を隠すことを例示付きで禁止しているため、学習用ツールバーを保ったまま標準プレイヤー操作も見せる`controls:1`へ修正し、build 0.25.5/0.25.6へ含めた。YouTube字幕/プレイリスト自動取得への権利許可は未確認で、継続可否の判断は保留。
 - [x] macOS向けIFrameプレイヤーを専用WKWebViewへ分離し、`loadHTMLString(_:baseURL:)`のbaseURLとIFrame `origin`にHTTPS Bundle IDを指定。画面外・ActivationPolicy`.prohibited`の検証でIFrame APIの準備完了と動画画面のスクリーンショットを確認し、build 0.25.6に含めた。Xcodeの`build-for-testing`も成功。Refererヘッダーの直接記録、アプリ全体の画面・再生操作回帰、TestFlight検証は未実施。
-- [ ] **仕様判断待ち:** 現行の無料10教材上限はYouTube教材にも適用され、11本目のYouTube教材登録・視聴をPro購入まで止める。GoogleのDeveloper Policiesは埋め込み動画の視聴課金と、再生以外の操作で視聴アクセスを制限することを禁じるため、現仕様には強い適合リスクがある。販売準備の推奨案はYouTube教材を無料枠から除外し、ローカル教材だけ10本上限、ProのAI自動化・検索・ローカル教材無制限を維持すること。無料/Pro境界を変える主要仕様のため、本人の選択前には実装を変更しない。対象はローカル動画追加、YouTube直接追加、プレイリスト取込、ゴミ箱復元で、実装根拠はアプリ本体repoの`docs/YOUTUBE_PERMISSION_REVIEW.md`。
+- [x] **仕様決定・実装済み（2026-10-16）:** 無料10本枠はローカル動画だけに適用し、YouTube教材は無料版でも登録数無制限とする。本人が選択し、build 0.25.18へ実装。直接追加、プレイリスト取込、ゴミ箱復元、上限表示をテスト済み。字幕・プレイリスト取得への権利許可とYouTube API要件は別途未確認。実装根拠はアプリ本体repoの`docs/YOUTUBE_PERMISSION_REVIEW.md`。
 - [ ] YouTube字幕/プレイリスト自動取得の書面許可と、字幕・スクリーンショット等の保存に関する権利根拠を確認する。回答は「権利・許可の確認後に判断する」であり、現行取得方式の継続や移行は未決定。
