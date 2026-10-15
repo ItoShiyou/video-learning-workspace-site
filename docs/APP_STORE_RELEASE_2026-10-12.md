@@ -1,12 +1,14 @@
 # しおり | Mac App Store公開チェックリスト（2026-10-12）
 
 ## 現行状態（2026-10-15更新）
-- 最新の配布署名済み候補: version 0.25.0 / build 0.25.16、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。SHA-256 `e4fc29287a1044dcbed4dd5e3975392ca8cfc4dcb9b7e6e412fbca1b1d37a06f`。App Store package checkerと配布物検査にPASS。
-- 現行アプリ回帰テスト: 232件中229件成功、実AIモデル3件をスキップ、失敗0。StoreKit/NativeBridgeの画面外テスト: build 0.25.16で12件中11件成功、購入ダイアログ操作1件をスキップ、失敗0。StoreKitの購入・返金はXcode仮想取引であり、App Store Sandboxの実取引ではない。
-- Appleで受領を確認できているTestFlight版はbuild 0.25.2。build 0.25.16のアップロード・受領・TestFlight処理は未確認。App Store Connect API Key ID/Issuer IDと標準保存場所の`.p8`鍵がなく、画面操作なしのAPI照会・CLIアップロードは未実施。
-- 商品価格は日本税込1,980円。審査連絡先、App Privacy回答、公開サポート/プライバシーURL、掲載素材のApp Store Connect登録、実Sandbox購入・返金、別Mac検証は未完了。
-- YouTube字幕・プレイリスト自動取得の書面許可と動画別Made for Kids確認は未解決。YouTube教材にも無料10本上限が及ぶ現行仕様には視聴制限上のポリシー懸念があるため、本人の仕様判断後に販売版を確定する。
-- この紹介サイトはMac App Store販売方針の案内のみ。正式なApp Store URLが発行されるまで購入・ダウンロードURLを設置せず、Draft PRのまま公開しない。
+- 最新の配布署名済み候補: version 0.25.0 / build 0.25.16、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。pkg SHA-256 `e4fc29287a1044dcbed4dd5e3975392ca8cfc4dcb9b7e6e412fbca1b1d37a06f`。配布署名、プロファイル、Sandbox entitlements、App Store package checker、独立配布物検査を確認。
+- 現行アプリ回帰テストは232件、失敗0、実AIモデル3件をスキップ。StoreKit/NativeBridgeの画面外テストは12件中11件成功、購入ダイアログの対話操作1件をスキップ、失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
+- build 0.25.16はTransporter配送とApple処理完了を確認済み。App Store ConnectのTestFlightで「提出準備完了」、内部テスター1名への割当を確認。本人がTestFlightからインストールして起動したと報告。表示画面と主要機能の操作結果は未確認。
+- App Store version 0.25.0にbuild 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。
+- 日本のアプリ価格は無料、Proは税込1,980円。初回の配信対象は174地域で、フランスを除外。Paid Apps契約・銀行・税務は2026-10-15に有効表示を確認。EU DSA申告とEU販売方針は未確定。
+- App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定。別Macでのテストと実Sandbox購入・返金も未実施。
+- YouTube字幕・プレイリスト自動取得の書面許可、動画別Made for Kids確認、YouTube教材にも適用中の無料10本上限の扱いは未解決。字幕・プレイリスト方針は本人の指示で保留中。販売適合性は確定していない。
+- 紹介サイトの修正はDraft PR #3でレビュー中。正式なApp Store URLが発行されるまでは購入・ダウンロードURLを置かない。PRのマージ、Pages公開、App Review提出、一般公開は未実施。
 
 ## 販売方式・優先順位
 - ユーザーの決定：**配布経路は公式Mac App Storeのみ**。この紹介サイトは案内用とし、公式App Storeの商品ページだけにリンクする。
@@ -56,7 +58,7 @@
 - https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/
 - https://developer.apple.com/app-store/review/
 
-## 現在の確認状態（2026-10-14更新）
+## 2026-10-14時点の確認状態（当時の履歴）
 
 ### できていること
 - 最新のアプリ本体は紹介サイトとは別のローカルmacOSプロジェクト。利用者のMacでインストールと機能確認ができたTestFlight版はversion 0.25.0 / build 0.25.2、Bundle ID `io.github.itoshiyou.shiori`。最新ソースbuild 0.25.9はApp Sandboxを有効にしたad-hoc QAアプリで、ICNS・Privacy Manifest・ローカル配布物検査に合格したが、提出pkgではなくAppleへアップロードしていない。署名候補build 0.25.6は現行のICNS・コード署名検査に不合格のため提出には使わない。Transporterで直近配送を開始したとの本人報告はあるが、Appleの最新受領・処理状態は確認できていない。
