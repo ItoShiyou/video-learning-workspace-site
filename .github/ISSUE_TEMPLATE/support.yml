@@ -1,0 +1,58 @@
+name: しおりのサポート
+description: しおりの不具合や利用上の質問を送信します
+title: "[サポート] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        このフォームで作成するIssueは公開されます。教材、ノート、個人情報、購入情報、秘密鍵、認証コードを記載しないでください。購入や返金はAppleの購入履歴からAppleへお問い合わせください。
+  - type: input
+    id: app-version
+    attributes:
+      label: しおりのバージョン
+      description: アプリの「設定」画面に表示されるバージョンを入力してください。
+      placeholder: 0.25.0 (0.25.16)
+    validations:
+      required: true
+  - type: input
+    id: macos-version
+    attributes:
+      label: macOSのバージョン
+      placeholder: macOS 15.0
+    validations:
+      required: true
+  - type: dropdown
+    id: topic
+    attributes:
+      label: 問い合わせの種類
+      options:
+        - 不具合
+        - 使い方
+        - 保存・バックアップ
+        - その他
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: 操作手順
+      description: 問題を再現する手順を、教材内容や個人情報を含めずに記載してください。
+      placeholder: |
+        1. 設定を開く
+        2. ...
+    validations:
+      required: true
+  - type: textarea
+    id: expected-and-actual
+    attributes:
+      label: 期待した結果と実際の結果
+      description: 表示されたエラーがあれば、個人情報を含まない範囲で記載してください。
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: 公開情報の確認
+      options:
+        - label: 投稿内容に個人情報、教材、ノート、購入情報、秘密鍵、認証コードが含まれていないことを確認しました。
+          required: true
