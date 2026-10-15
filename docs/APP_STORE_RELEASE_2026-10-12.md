@@ -1,5 +1,13 @@
 # しおり | Mac App Store公開チェックリスト（2026-10-12）
 
+## 現行状態（2026-10-15更新）
+- 最新の配布署名済み候補: version 0.25.0 / build 0.25.15、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。SHA-256 `b90703fd4da19d13f840c4cfdbb65fa9ea4659a133657fdad4ecf75f24202857`。App Store package checkerと配布物検査にPASS。
+- 現行アプリ回帰テスト: 231件中228件成功、実AIモデル3件をスキップ、失敗0。StoreKit/NativeBridgeの画面外テスト: 12件中11件成功、購入ダイアログ操作1件をスキップ、失敗0。StoreKitの購入・返金はXcode仮想取引であり、App Store Sandboxの実取引ではない。
+- Appleで受領を確認できているTestFlight版はbuild 0.25.2。build 0.25.15のアップロード・受領・TestFlight処理は未確認。App Store Connect API Key ID/Issuer IDと標準保存場所の`.p8`鍵がなく、画面操作なしのAPI照会・CLIアップロードは未実施。
+- 商品価格は日本税込1,980円。審査連絡先、App Privacy回答、公開サポート/プライバシーURL、掲載素材のApp Store Connect登録、実Sandbox購入・返金、別Mac検証は未完了。
+- YouTube字幕・プレイリスト自動取得の書面許可と動画別Made for Kids確認は未解決。YouTube教材にも無料10本上限が及ぶ現行仕様には視聴制限上のポリシー懸念があるため、本人の仕様判断後に販売版を確定する。
+- この紹介サイトはMac App Store販売方針の案内のみ。正式なApp Store URLが発行されるまで購入・ダウンロードURLを設置せず、Draft PRのまま公開しない。
+
 ## 販売方式・優先順位
 - ユーザーの決定：**配布経路は公式Mac App Storeのみ**。この紹介サイトは案内用とし、公式App Storeの商品ページだけにリンクする。
 - **無料ダウンロード＋買い切りPro（Appleの非消耗型アプリ内購入）**を基本構成にする。日本価格はユーザー指定の税込1,980円でApp Store Connectに設定済み。
