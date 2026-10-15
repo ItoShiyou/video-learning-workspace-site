@@ -19,7 +19,7 @@ HTML・CSS・JavaScriptだけで動く、GitHub Pages向けの紹介ページで
 
 AppleがTestFlight配信したことを確認済みの版は0.25.0 / build 0.25.2です。ローカル動画、時刻付きノート、スクリーンショット、復習カード、本棚、バックアップ復元、再起動後の保存、商品表示、購入キャンセル、未購入時の復元を確認しました。実Sandbox購入確定・返金は未確認です。
 
-最新の配布署名済み候補は0.25.0 / build 0.25.15です。YouTube機能の初回同意を含み、Mac App Store署名pkg、Apple証明書チェーン、プロファイル、アプリ署名、App Store package checker、配布物検査を通過しました。現行ソースのloopback統合テストは231件中228成功・実AIモデル3件スキップ・失敗0です。pkg SHA-256は本体リポジトリの提出記録に保存しています。AppleへのアップロードとTestFlight処理結果は未確認です。App Store Connect状態照会CLIはAPI Key IDとIssuer IDが未設定のためApple APIに接続していません。StoreKit画面外統合テストは12件中11成功・購入ダイアログ操作1件スキップ・失敗0で、実Sandbox取引を代替しません。
+最新の配布署名済み候補は0.25.0 / build 0.25.16です。YouTube機能の初回同意を含み、プレイヤーの自動再生を明示的に無効化しています。Mac App Store署名pkg、Apple証明書チェーン、プロファイル、アプリ署名、App Store package checker、配布物検査を通過しました。現行ソースのloopback統合テストは232件中229成功・実AIモデル3件スキップ・失敗0です。pkg SHA-256は本体リポジトリの提出記録に保存しています。AppleへのアップロードとTestFlight処理結果は未確認です。App Store Connect状態照会CLIはAPI Key IDとIssuer IDが未設定のためApple APIに接続していません。StoreKit画面外統合テストは12件中11成功・購入ダイアログ操作1件スキップ・失敗0で、実Sandbox取引を代替しません。
 
 配布用署名identityとInstaller identityはこのMacで有効です。有料アプリ契約・銀行・税務情報は直近のApp Store Connect確認で有効でした。Apple Developer Program契約の更新同意、EU配信時のDSAトレーダー申告、審査連絡先、最新ビルドのApple受領は未確認または未完了です。App Store用画像プレビュー3枚とPro審査用プレビュー1枚をアプリ本体リポジトリに準備済みですが、App Store Connectには未登録です。サポート/プライバシーの新ページはこのPR内にあり、公開URLではありません。
 
