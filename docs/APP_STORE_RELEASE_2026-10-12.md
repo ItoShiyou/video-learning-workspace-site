@@ -3,7 +3,7 @@
 ## 現行状態（2026-10-16更新）
 - 最新のローカル配布署名済み候補: version 0.25.0 / build 0.25.19、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。pkg SHA-256 `d0a3acadb07f45e4a14d750d875a00f36ac1e0f67c3099a24231586d263785ac`。Apple配布署名、プロファイル、Sandbox entitlements、App Store package checker、独立配布物検査、画面外XCTestを確認。Appleへの配送は未実施。build 0.25.19ではYouTube WebViewデータの永続性を利用者へ開示。
 - 現行アプリ回帰テストは234件、失敗0、実AIモデル3件をスキップ。build 0.25.19のStoreKit/NativeBridge画面外テストは13件中12件成功、購入ダイアログの対話操作1件をスキップ、失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
-- build 0.25.16はTransporter配送とApple処理完了を確認済み。App Store ConnectのTestFlightで「提出準備完了」、内部テスター1名への割当を確認。本人がTestFlightからインストールして起動したと報告。表示画面と主要機能の操作結果は未確認。
+- build 0.25.16はTransporter配送とApple処理完了を確認済み。App Store ConnectのTestFlightで「提出準備完了」、内部テスター1名への割当を確認。本人がTestFlightからインストールして起動し、本棚が表示されたと報告。その他の主要機能の操作結果は未確認。
 - App Store version 0.25.0にbuild 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。
 - 日本のアプリ価格は無料、Proは税込1,980円。初回の配信対象は174地域で、フランスを除外。Paid Apps契約・銀行・税務は2026-10-15に有効表示を確認。EU DSA申告とEU販売方針は未確定。
 - App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定。別Macでのテストと実Sandbox購入・返金も未実施。
