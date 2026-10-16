@@ -1,10 +1,10 @@
 # しおり | Mac App Store公開チェックリスト（2026-10-12）
 
 ## 現行状態（2026-10-16更新）
-- 最新のローカル開発候補: version 0.25.0 / build 0.25.20、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`、最低OS macOS 26.0。ad-hoc署名のSandboxビルドであり、配布pkg・TestFlight・新しいApple配送は未作成。最後の配布署名済みpkgは旧macOS 14対応のbuild 0.25.19で、現行提出候補としては使えない。
-- Python回帰249件成功、失敗0、実AIモデル3件をスキップ。macOS 26候補のStoreKit/NativeBridge画面外テスト13件中12件成功・購入キャンセル1件skip・失敗0。独立StoreKitテストは8件中7件成功・対話式テスト1件skip・失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
-- TestFlightで最後に実機確認したbuild 0.25.19は本棚、ローカル動画、時刻付きノートの保存、再起動後の保持を確認済み。build 0.25.20のmacOS 26変更とBackground AssetsはTestFlightに未送信・未検証。
-- 旧build用の製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。macOS 26候補の掲載素材とIAP審査画像の差し替えが必要。
+- 最新のローカルQA候補: version 0.25.0 / build 0.25.22、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`、最低OS macOS 26.0。`check-app-store.py`、`check-release.py`、`codesign --verify --deep --strict`が成功し、`.pyc`は含まれない。ad-hoc署名でモデルasset pack・配布pkg・TestFlight・新しいApple配送は未作成。最後の配布署名済みpkgは旧macOS 14対応のbuild 0.25.19で、現行提出候補としては使えない。
+- Python回帰254件成功、失敗0、実AIモデル3件をスキップ。macOS 26候補のStoreKit/NativeBridge画面外テスト13件中12件成功・購入キャンセル1件skip・失敗0。独立StoreKitテストは8件中7件成功・対話式テスト1件skip・失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
+- TestFlightで最後に実機確認したbuild 0.25.19は本棚、ローカル動画、時刻付きノートの保存、再起動後の保持を確認済み。macOS 26のローカルQA候補0.25.22とBackground AssetsはTestFlightに未送信・未検証。
+- 旧build用の製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。build 0.25.21の同梱UIから生成したmacOS 26対応後の掲載素材とIAP審査画像はApp Store Connectへ未差し替え。
 - 日本のアプリ価格は無料、Proは税込1,980円。初回の配信対象は174地域で、フランスを除外。Paid Apps契約・銀行・税務は2026-10-15に有効表示を確認。EU DSA申告とEU販売方針は未確定。
 - App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定。別Macでのテストと実Sandbox購入・返金も未実施。
 - YouTube字幕・プレイリスト自動取得の書面許可、動画別Made for Kids確認、App Privacy回答は未解決。無料10本枠はローカル動画だけを数え、YouTube教材を枠外とする仕様を本人が2026-10-16に決定し、build 0.25.18へ実装・テスト済み。字幕・プレイリスト方針は本人の指示で保留中。販売適合性は確定していない。
@@ -13,6 +13,7 @@
 ## 現行macOS 26移行ブロッカー（2026-10-16）
 - 本人判断により最低OSをmacOS 26へ引き上げ、ProモデルはApple-hosted Background Assetsへ移行。
 - 4モデル計6.01GBを公式Ollama Registryから取得し、全blobのサイズ・SHA-256を検証済み。Xcode 27.0 `ba-package`はテンプレート生成、小fixture、実モデルの全てで、`.json`入力に対し`path extension isn’t "json"`（終了64）を返す。Asset pack `.aar`は0件。
+- Xcode 27.1はまだこのMacにインストールされておらず、修正版CLIの利用可否は未確認。Mac App DistributionとInstaller証明書は保存中の秘密鍵と対応するが、現在のキーチェーンで有効identityは0件。現行のアプリprofileにはApp Group entitlementがなく、Downloader拡張profileも未作成。
 - 次工程はApple修正版CLIまたは別Xcode環境で`.aar`を作成、App Group `group.io.github.itoshiyou.shiori`をBundle IDへ追加し、アプリとDownloader extension用Mac App Store provisioning profileを再発行、Apple-hosted packs登録、distribution署名・TestFlight実機検証。
 - App Store Connect API Key ID/Issuer IDとローカル`.p8`は未設定。API鍵準備手順はアプリ本体repoの`docs/ASC_API_KEY_SETUP.md`にある。秘密鍵をサイトリポジトリへ複製しない。
 - これは提出準備中のDraft PRであり、Pages公開・一般公開はしない。
