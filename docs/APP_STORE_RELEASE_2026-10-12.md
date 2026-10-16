@@ -1,8 +1,8 @@
 # しおり | Mac App Store公開チェックリスト（2026-10-12）
 
 ## 現行状態（2026-10-16更新）
-- 最新のローカル配布署名済み候補: version 0.25.0 / build 0.25.18、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。pkg SHA-256 `e3f499661b80aa26d64cdc3c647f159a6316664c7a3c4eefe5e1ef151d2c6ba5`。Apple配布署名、プロファイル、Sandbox entitlements、App Store package checker、独立配布物検査、画面外XCTestを確認。Appleへの配送は未実施。
-- 現行アプリ回帰テストは234件、失敗0、実AIモデル3件をスキップ。build 0.25.18のStoreKit/NativeBridge画面外テストは13件中12件成功、購入ダイアログの対話操作1件をスキップ、失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
+- 最新のローカル配布署名済み候補: version 0.25.0 / build 0.25.19、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`。pkg SHA-256 `d0a3acadb07f45e4a14d750d875a00f36ac1e0f67c3099a24231586d263785ac`。Apple配布署名、プロファイル、Sandbox entitlements、App Store package checker、独立配布物検査、画面外XCTestを確認。Appleへの配送は未実施。build 0.25.19ではYouTube WebViewデータの永続性を利用者へ開示。
+- 現行アプリ回帰テストは234件、失敗0、実AIモデル3件をスキップ。build 0.25.19のStoreKit/NativeBridge画面外テストは13件中12件成功、購入ダイアログの対話操作1件をスキップ、失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
 - build 0.25.16はTransporter配送とApple処理完了を確認済み。App Store ConnectのTestFlightで「提出準備完了」、内部テスター1名への割当を確認。本人がTestFlightからインストールして起動したと報告。表示画面と主要機能の操作結果は未確認。
 - App Store version 0.25.0にbuild 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。
 - 日本のアプリ価格は無料、Proは税込1,980円。初回の配信対象は174地域で、フランスを除外。Paid Apps契約・銀行・税務は2026-10-15に有効表示を確認。EU DSA申告とEU販売方針は未確定。
@@ -61,12 +61,12 @@
 ## 2026-10-14時点の確認状態（当時の履歴）
 
 ### できていること
-- アプリ本体は紹介サイトとは別のローカルmacOSプロジェクトです。build 0.25.18は正式Bundle ID/Product IDとApp Store配布署名・Sandbox profileを使用してpkgまで生成し、package checker、release checker、署名検査、画面外XCTestに合格しました。pkgはアプリ本体repoの`dist/app-store-submission-v13-youtube-free-cap-excluded/Shiori-AppStore.pkg`です。Appleへの配送は未実施。
-- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。build 0.25.18の`check-app-store.py`と`check-release.py`は許可付き検証でPASS。Apple証明書チェーンとprofileを検証済み。
-- 2026-10-16のPython/loopback統合テストは234件、失敗0、AI実モデル3件をスキップ。build 0.25.18の画面外StoreKit/NativeBridgeテストは13件中12件成功、購入ダイアログ操作1件skip、失敗0。これらは実App Store Sandbox購入の代替ではない。
+- アプリ本体は紹介サイトとは別のローカルmacOSプロジェクトです。build 0.25.19はYouTube WebViewの永続Cookie/キャッシュ/ログイン状態の説明を追加し、正式Bundle ID/Product IDとApp Store配布署名・Sandbox profileを使用してpkgまで生成しました。package checker、release checker、署名検査、画面外XCTestに合格。pkgはアプリ本体repoの`dist/app-store-submission-v14-privacy-disclosure/Shiori-AppStore.pkg`です。Appleへの配送は未実施。
+- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。build 0.25.19の`check-app-store.py`と`check-release.py`は許可付き検証でPASS。Apple証明書チェーンとprofileを検証済み。
+- 2026-10-16のPython/loopback統合テストは234件、失敗0、AI実モデル3件をスキップ。build 0.25.19の画面外StoreKit/NativeBridgeテストは13件中12件成功、購入ダイアログ操作1件skip、失敗0。これらは実App Store Sandbox購入の代替ではない。
 - 無料版はローカル動画10本まで、YouTube教材は登録本数無制限とする仕様を本人が決定。直接追加、プレイリスト取込、ゴミ箱復元、ローカル動画上限、設定画面の表示に実装し、回帰テスト済み。買い切りProはStoreKit非消耗型、Product ID `io.github.itoshiyou.shiori.pro`、日本価格は税込1,980円。
 - App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリおよびTestFlight用build 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚は登録済み。IAPは「提出準備中」、審査提出は未実施。
-- Apple側で処理・TestFlight割当を最後に確認したbuildは0.25.16。build 0.25.18はローカルpkgまでで未配送。App Store Connect API鍵は未設定。
+- Apple側で処理・TestFlight割当を最後に確認したbuildは0.25.16。build 0.25.19はローカルpkgまでで未配送。App Store Connect API鍵は未設定。
 - 紹介ページはDraft PR #3で、正式App Storeリンク・外部決済・ダウンロードリンクを置いていません。PR merge、Pages公開、App Review提出、一般公開は未実施。
 
 ### 提出前に残るゲート
