@@ -19,11 +19,15 @@ HTML・CSS・JavaScriptだけで動く、GitHub Pages向けの紹介ページで
 
 以前のTestFlight build 0.25.2では、ローカル動画、時刻付きノート、スクリーンショット、復習カード、本棚、バックアップ復元、再起動後の保存、商品表示、購入キャンセル、未購入時の復元を確認しました。実Sandbox購入確定・返金は未確認です。
 
-Appleで処理完了したversion 0.25.0 / build 0.25.19をTestFlight内部グループへ割り当て、実機で起動・本棚表示、14秒のローカル動画再生、時刻付きノート保存、アプリ再起動後の保持を確認しました。元のノートと新しいノートが再起動後も表示されました。提出pkg `dist/app-store-submission-v14-privacy-disclosure/Shiori-AppStore.pkg`（SHA-256 `d0a3acadb07f45e4a14d750d875a00f36ac1e0f67c3099a24231586d263785ac`）です。署名・Sandbox・App Store package checker・配布物検査に合格。Python回帰234件は失敗0・実AIモデル3件skip、StoreKit/NativeBridge画面外試験は13件中12件成功・購入キャンセル1件skip・失敗0、大規模合成データの保存・検索・バックアップ復元も成功しました。実App Store Sandbox購入・返金は未確認です。
+TestFlightで最後に実機確認したのはversion 0.25.0 / build 0.25.19です。本棚、14秒のローカル動画再生、時刻付きノート保存、再起動後の保持を確認しました。現在のローカル候補はbuild 0.25.20の開発用Sandboxアプリ（macOS 26以降）で、配布署名pkgやTestFlightには未送信です。Python回帰249件成功・実AIモデル3件skip・失敗0、画面外のネイティブ試験は13件中12成功・1 skip、StoreKit試験は8件中7成功・1 skipです。公式AIモデル6.01GBのSHA-256検証は済みましたが、Xcode 27.0 `ba-package`が有効なJSONマニフェストを拡張子エラーで拒否するため、Apple-hosted asset packと新しい提出pkgは未生成です。実App Store Sandbox購入・返金は未確認です。
 
-配布用署名identityとInstaller identityはこのMacで有効です。有料アプリ契約・銀行口座・税務フォームは2026-10-15に有効表示を再確認しました。アプリ本体価格は無料、Proは税込¥1,980、初回配信地域はフランスを除外した174か所です。App Store向けスクリーンショット3枚とPro審査用画像1枚はアップロード済み。build 0.25.19はTestFlight内部グループへ割り当て済みで、インストール・再起動を含む基本実機確認を完了しました。IAPは「提出準備中」。App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定です。サポート/プライバシーのページはこのPR内の草案で、公開URLではありません。EUのDSA申告・販売地域方針、実Sandbox購入・返金、別Mac試験が残っています。
+配布用署名identityとInstaller identityはこのMacで有効です。有料アプリ契約・銀行口座・税務フォームは2026-10-15に有効表示を再確認しました。アプリ本体価格は無料、Proは税込¥1,980、初回配信地域はフランスを除外した174か所です。App Store向けスクリーンショット3枚とPro審査用画像1枚は旧build向けにアップロード済みです。今回のmacOS 26変更を含むビルドはまだApp Store Connectへ送っていません。App Groupを含む新しいアプリ/Downloader extension用の配布プロファイルも未準備です。IAPは「提出準備中」。App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定です。サポート/プライバシーのページはこのPR内の草案で、公開URLではありません。EUのDSA申告・販売地域方針、実Sandbox購入・返金、別Mac試験が残っています。
 
 YouTube機能の初回利用前に日本語の同意画面を表示します。字幕・プレイリスト自動取得への書面許可、動画ごとのMade for Kids確認・追跡停止、App Privacy回答は未確認です。同意画面はサービスや権利者の許可を代替しません。無料版はローカル動画10本まで、YouTube教材は登録本数無制限とする仕様を本人が決定し、build 0.25.18へ実装しました。正式なApp Store URLが確定するまで購入・ダウンロードボタンは置きません。
+
+## 現在のmacOS 26移行状況
+
+最低OSをmacOS 26へ引き上げ、AIモデルはApple-hosted Background Assetsで提供する方針です。通常のApp Store配布pkg、アセットパック、App Store Connectへの登録、macOS 26候補のTestFlight検証は未完了です。Appleの審査提出や一般公開を行った状態ではありません。
 
 ## ローカルで確認
 
