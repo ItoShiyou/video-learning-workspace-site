@@ -1,94 +1,30 @@
-# しおり | Mac App Store公開チェックリスト（2026-10-12）
+# しおりのMac App Store公開準備
 
-## 現行状態（2026-10-16更新）
-- 最新のローカルQA候補: version 0.25.0 / build 0.25.23、Bundle ID `io.github.itoshiyou.shiori`、Pro Product ID `io.github.itoshiyou.shiori.pro`、最低OS macOS 26.0。`check-app-store.py`、`check-release.py`、`codesign --verify --deep --strict`が成功し、`.pyc`は含まれない。ad-hoc署名でモデルasset pack・配布pkg・TestFlight・新しいApple配送は未作成。最後の配布署名済みpkgは旧macOS 14対応のbuild 0.25.19で、現行提出候補としては使えない。
-- Python回帰255件成功、失敗0、実AIモデル3件をスキップ。`ResourceWarning`はエラー扱いで検証。macOS 26候補のStoreKit/NativeBridge画面外テスト13件中12件成功・購入キャンセル1件skip・失敗0。独立StoreKitテストは8件中7件成功・対話式テスト1件skip・失敗0。Xcode仮想取引で購入・復元・返金後の権利解除を確認。実App Store Sandbox取引ではない。
-- TestFlightで最後に実機確認したbuild 0.25.19は本棚、ローカル動画、時刻付きノートの保存、再起動後の保持を確認済み。macOS 26のローカルQA候補0.25.23とBackground AssetsはTestFlightに未送信・未検証。
-- 旧build用の製品スクリーンショット3枚とIAP審査画像1枚はApp Store Connectへ登録済み。IAPは「提出準備中」で、審査提出は未実施。build 0.25.21の同梱UIから生成したmacOS 26対応後の掲載素材とIAP審査画像はApp Store Connectへ未差し替え。
-- 日本のアプリ価格は無料、Proは税込1,980円。初回の配信対象は174地域で、フランスを除外。Paid Apps契約・銀行・税務は2026-10-15に有効表示を確認。EU DSA申告とEU販売方針は未確定。
-- App Privacy回答、公開サポート/プライバシーURL、App Review連絡先は未設定。別Macでのテストと実Sandbox購入・返金も未実施。
-- YouTube字幕・プレイリスト自動取得の書面許可、動画別Made for Kids確認、App Privacy回答は未解決。無料10本枠はローカル動画だけを数え、YouTube教材を枠外とする仕様を本人が2026-10-16に決定し、build 0.25.18へ実装・テスト済み。字幕・プレイリスト方針は本人の指示で保留中。販売適合性は確定していない。
-- 紹介サイトの修正はDraft PR #3でレビュー中。正式なApp Store URLが発行されるまでは購入・ダウンロードURLを置かない。PRのマージ、Pages公開、App Review提出、一般公開は未実施。
+しおりはMac App Storeでの公開に向けて準備中です。正式なApp Storeページができるまでは、この紹介サイトから購入・ダウンロードはできません。
 
-## 現行macOS 26移行ブロッカー（2026-10-16）
-- 本人判断により最低OSをmacOS 26へ引き上げ、ProモデルはApple-hosted Background Assetsへ移行。
-- 4モデル計6.01GBを公式Ollama Registryから取得し、全blobのサイズ・SHA-256を検証済み。Xcode 27.0 `ba-package`はテンプレート生成、小fixture、実モデルの全てで、`.json`入力に対し`path extension isn’t "json"`（終了64）を返す。Asset pack `.aar`は0件。
-- Xcode 27.1はまだこのMacにインストールされておらず、修正版CLIの利用可否は未確認。Mac App DistributionとInstaller証明書は保存中の秘密鍵と対応するが、現在のキーチェーンで有効identityは0件。現行のアプリprofileにはApp Group entitlementがなく、Downloader拡張profileも未作成。
-- Python 3.14で検出したSQLite接続とテストHTTPErrorの未クローズを修正し、全255件をResourceWarningエラー扱いで通過。
-- 次工程はApple修正版CLIまたは別Xcode環境で`.aar`を作成、App Group `group.io.github.itoshiyou.shiori`をBundle IDへ追加し、アプリとDownloader extension用Mac App Store provisioning profileを再発行、Apple-hosted packs登録、distribution署名・TestFlight実機検証。
-- App Store Connect API Key ID/Issuer IDとローカル`.p8`は未設定。API鍵準備手順はアプリ本体repoの`docs/ASC_API_KEY_SETUP.md`にある。秘密鍵をサイトリポジトリへ複製しない。
-- これは提出準備中のDraft PRであり、Pages公開・一般公開はしない。
+## 販売方針
 
-## 販売方式・優先順位
-- ユーザーの決定：**配布経路は公式Mac App Storeのみ**。この紹介サイトは案内用とし、公式App Storeの商品ページだけにリンクする。
-- **無料ダウンロード＋買い切りPro（Appleの非消耗型アプリ内購入）**を基本構成にする。日本価格はユーザー指定の税込1,980円でApp Store Connectに設定済み。
-- Polar / Lemon Squeezy / 独自ライセンスキー / DMG直接販売はApple版の初回リリースから除外。**Developer ID公証・stapleの手順をApp Store申請に転用しない。**
-- Apple Developer Program登録と有料アプリ契約は完了報告/確認済み。App Store ConnectのApp Record、銀行、税務も登録済みと確認。ただし更新版Apple Developer Program契約のAccount Holder同意とEU配信時のDSAトレーダー申告は未確認。
-- 本repoは**紹介サイトのみ**。アプリ本体はこのrepoに移動せず、Codex DesktopのローカルmacOSプロジェクトで管理する。
+- 配布はApple公式Mac App Storeのみです。DMG直販や外部決済は使用しません。
+- 無料版とStoreKitによる買い切りProを予定しています。日本のPro価格は税込1,980円を予定し、月額課金はありません。
+- 無料版はローカル動画10本まで。YouTube教材の登録数に上限はありません。
+- Apple Silicon搭載Mac、macOS 26以降が対象です。
+- AIモデルはAppleから取得し、取得後の解析はMac内で行います。
 
-## 技術リリースゲート（Codex、すべて実測で判定）
-- [ ] 最新アプリ本体の場所、OS要件、バージョン、Bundle ID、ビルドコマンドを確定し、同一アプリとして追跡。
-- [ ] macOS **App Sandbox**を有効化。ファイル選択、動画ファイルへの継続的なアクセス、書き込み・保存・再起動後の復元、モデル/キャッシュ保存がSandboxでも成功することを確認。必要最小限のentitlementのみ付与。
-- [ ] YouTube利用方法と第三者の著作物利用を審査ガイドライン・利用規約と照合。第三者コンテンツの不適切なダウンロードを実装しない。App Reviewに説明できる操作動画/説明を準備。
-- [ ] 本棚、動画、時刻付きノート、復習カード、学習記録の保存と読み出し、破損時の扱い、ネットワーク断を実機テスト。
-- [ ] 無料とProの境界を現在の実装と合わせ、StoreKit（StoreKit 2または採用技術に合う安全なブリッジ）で**non-consumable**購入を実装。Appleの検証済み取引に基づいて権利を付与。購入、キャンセル、復元、返金/取り消し、オフライン時の復元済み権利をSandbox/TestFlightで検証。
-- [ ] モデル、第三者ライブラリ、アセットの商用/再配布/Store内同梱条件と必要クレジットを記録。
-- [ ] App Store配布用の署名・プロビジョニング・Archive・アップロードを実機で確認。直接配布用DMGは作業対象外。
-- [ ] TestFlightで既存Mac以外の環境を検証し、審査提出後の指摘に対応。
+## 公開前に確定する項目
 
-## App Store Connectとサイトの作業
-- [ ] Apple側でアプリレコードを作成：macOS、正式アプリ名、主要言語=日本語、Bundle ID、SKU。**IDやSKUは既存との整合を必ず確認**。
-- [ ] App内課金で買い切りProを「非消耗型」として作成。製品ID・価格・ローカライズはStoreKit側と完全一致させる。
-- [ ] データ取扱いを実装確認し、App Privacy回答、プライバシーポリシー、サポートページ、問い合わせ先を実態通りに準備。
-- [ ] 申請用の紹介文・キーワード・カテゴリ・アイコン・スクリーンショット・審査用説明・暗号化関連の申告を実装内容と一致させる。
-- [ ] **正規のストアURLが発行されるまで**紹介サイトに偽のApp Storeバッジ/ダウンロードURL/価格を置かない。公開後はAppleの公式リンクに置換する。
-- [ ] サイト修正後 `python3 scripts/check-site.py` と `node --check dist/script.js` を実行。実行できなければ未実行と記録。
+- 正式なApp Store商品URLと販売開始日
+- YouTube字幕・プレイリスト自動取得に必要な許可と販売版での提供範囲
+- 最終仕様に対応するプライバシーポリシーとサポート情報
 
-## 日本語の商品ページ文案（事実確認後に使用）
-**アプリ名案**：しおり
-**サブタイトル案**：動画にノートと復習を
-**説明文案**：
-「動画の学習を、途中で終わらせない。しおりは、YouTubeや手元の動画に時刻付きノートを残し、復習につなげるMac向け学習アプリです。教材を本棚から選び、気づいた場所へ戻りながら学べます。無料で始めて、必要に応じてPro機能を一度だけ購入する方式を予定しています。」
-**注**：本体最新版の実機確認まで、アプリの機能・無料Pro範囲を断定した正式商品説明には使用しない。販売前は「公開準備中」。
+権利確認中の機能を許可済みと表示せず、App Review承認前に販売中とは案内しません。掲載画像の教材・件数は自作サンプルです。掲載画像は0.20.0の参考画面で、販売版では一部が変わる場合があります。
 
-## 人の操作が必要なブロッカー（ユーザーへ簡潔に報告）
-1. Account HolderがApple Developer Program/有料アプリ契約、税務、銀行のApp Store Connect状態を確認し、必要な手続きを完了する。
-2. EU配信を行う場合、本人が配信地域とDSAトレーダー状態を確認・申告する。
-3. YouTube字幕・プレイリスト自動取得の許可を確認し、販売版での扱いを決める。App Review連絡先、プライバシー回答、サポート/プライバシーURLの登録も残る。
-4. Apple Account/2FA/証明書署名・最終審査提出と公開判断は本人管理。秘密鍵・パスワード・トークンをGitHubやAI会話へ貼らない。
+このリポジトリは紹介サイト専用です。アプリ本体、学習データ、署名・アカウントの運用情報、内部ビルド・試験ログは公開対象に含めません。
 
-## 出荷条件
-「最新本体が見つかった」「Sandboxで全主要動作が通った」「StoreKitの復元も含む購入テストに合格」「実ビルドがApp Store Connect/TestFlightで確認された」「Appleの審査が承認した」。すべて揃うまでは出荷済みとしない。
+## サイトの確認
 
-## 公式資料
-- https://developer.apple.com/documentation/security/protecting-user-data-with-app-sandbox
-- https://developer.apple.com/help/app-store-connect/create-an-app-record/add-a-new-app/
-- https://developer.apple.com/help/app-store-connect/manage-in-app-purchases/create-consumable-or-non-consumable-in-app-purchases/
-- https://developer.apple.com/help/app-store-connect/test-a-beta-version/testflight-overview/
-- https://developer.apple.com/app-store/review/
+```sh
+python3 scripts/check-site.py
+node --check dist/script.js
+```
 
-## 2026-10-14時点の確認状態（当時の履歴）
-
-### できていること
-- アプリ本体は紹介サイトとは別のローカルmacOSプロジェクトです。build 0.25.19はYouTube WebViewの永続Cookie/キャッシュ/ログイン状態の説明を追加し、正式Bundle ID/Product IDとApp Store配布署名・Sandbox profileを使用してpkgまで生成しました。package checker、release checker、署名検査、画面外XCTestに合格。pkgはアプリ本体repoの`dist/app-store-submission-v14-privacy-disclosure/Shiori-AppStore.pkg`です。Appleへの配送は未実施。
-- App Sandbox、選択ファイルの読み書き、ネットワーククライアント/ローカルサーバー権限、Sandboxを継承するhelperを設定。build 0.25.19の`check-app-store.py`と`check-release.py`は許可付き検証でPASS。Apple証明書チェーンとprofileを検証済み。
-- 2026-10-16のPython/loopback統合テストは234件、失敗0、AI実モデル3件をスキップ。build 0.25.19の画面外StoreKit/NativeBridgeテストは13件中12件成功、購入ダイアログ操作1件skip、失敗0。これらは実App Store Sandbox購入の代替ではない。
-- 無料版はローカル動画10本まで、YouTube教材は登録本数無制限とする仕様を本人が決定。直接追加、プレイリスト取込、ゴミ箱復元、ローカル動画上限、設定画面の表示に実装し、回帰テスト済み。買い切りProはStoreKit非消耗型、Product ID `io.github.itoshiyou.shiori.pro`、日本価格は税込1,980円。
-- App Store Connectのアプリレコード、年齢区分、説明文、キーワード、カテゴリおよびTestFlight用build 0.25.16を設定済み。製品スクリーンショット3枚とIAP審査画像1枚は登録済み。IAPは「提出準備中」、審査提出は未実施。
-- Apple側で処理・TestFlight割当を最後に確認したbuildは0.25.16。build 0.25.19はローカルpkgまでで未配送。App Store Connect API鍵は未設定。
-- 紹介ページはDraft PR #3で、正式App Storeリンク・外部決済・ダウンロードリンクを置いていません。PR merge、Pages公開、App Review提出、一般公開は未実施。
-
-### 提出前に残るゲート
-- TestFlight購入シートに確定ボタンが表示されず、実取引・Pro解除・返金後の権利解除は未確認。StoreKitのXcode仮想テストは7件成功・1件スキップで通過しているが、実Sandbox取引の代替にはならない。
-- YouTube字幕/プレイリスト自動取得はyt-dlpを使用する。権利者等の書面許可を確認してから販売版での扱いを決める方針で、許可は確認済みとしていない。紹介ページではこの機能の提供が未確定であることを表示。
-- YouTube等の第三者サービスを含むApp Privacy回答は未提出。プライバシーポリシーとサポートページはHTML草案で、公開URLの稼働確認・App Store Connectへの登録が必要。
-- アプリ本体repoに、現行WebKit UIと隔離した合成教材を使った2880×1800の画像プレビュー3枚（教材棚、時刻付きノート、復習カード）を生成済み。ユーザー画面のキャプチャや前面化は使っていない。描画元buildと現行UI資産のハッシュ一致を確認済み。IAP審査用プレビューも最新QA build 0.25.9から再生成し、Pro案内と購入/復元表示を確認。いずれもApp Store Connectへの登録とApp Review連絡先は未完了。紹介ページ内の参考画面は0.20.0のため、提出画像として流用しない。
-- Account Holderによる最新Developer Program契約の確認、EU配信の選択と必要なDSAトレーダー申告は本人判断が必要。一般公開・App Review提出は行っていない。
-
-この状態メモは内部作業用の進捗記録であり、発売済み・審査提出済みを意味しない。正式なApp Store URLが確定するまで、購入・ダウンロードリンクを作成しない。
-
-
-- YouTube IFrame Player APIの`controls:0`を検出。Google公式ポリシーが標準プレイヤー機能を隠すことを例示付きで禁止しているため、学習用ツールバーを保ったまま標準プレイヤー操作も見せる`controls:1`へ修正し、build 0.25.5/0.25.6へ含めた。YouTube字幕/プレイリスト自動取得への権利許可は未確認で、継続可否の判断は保留。
-- [x] macOS向けIFrameプレイヤーを専用WKWebViewへ分離し、`loadHTMLString(_:baseURL:)`のbaseURLとIFrame `origin`にHTTPS Bundle IDを指定。画面外・ActivationPolicy`.prohibited`の検証でIFrame APIの準備完了と動画画面のスクリーンショットを確認し、build 0.25.6に含めた。Xcodeの`build-for-testing`も成功。Refererヘッダーの直接記録、アプリ全体の画面・再生操作回帰、TestFlight検証は未実施。
-- [x] **仕様決定・実装済み（2026-10-16）:** 無料10本枠はローカル動画だけに適用し、YouTube教材は無料版でも登録数無制限とする。本人が選択し、build 0.25.18へ実装。直接追加、プレイリスト取込、ゴミ箱復元、上限表示をテスト済み。字幕・プレイリスト取得への権利許可とYouTube API要件は別途未確認。実装根拠はアプリ本体repoの`docs/YOUTUBE_PERMISSION_REVIEW.md`。
-- [ ] YouTube字幕/プレイリスト自動取得の書面許可と、字幕・スクリーンショット等の保存に関する権利根拠を確認する。回答は「権利・許可の確認後に判断する」であり、現行取得方式の継続や移行は未決定。
+正式な公開情報が確定したら、紹介ページ・サポートページ・プライバシーポリシーを同じ仕様へ更新します。
